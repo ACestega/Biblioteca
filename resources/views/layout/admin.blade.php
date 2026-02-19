@@ -60,7 +60,7 @@
                 <!-- Menú de navegación superior (desktop) -->
                 <nav class="hidden md:block">
                     <ul class="flex space-x-6">
-                        <li><a href="#" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="inicio">Inicio</a></li>
+                        <li><a href="{{ route('home') }}" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="inicio">Inicio</a></li>
                         <li><a href="#" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="usuarios">Usuarios</a></li>
                         <li><a href="#" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="libros">Libros</a></li>
                         <li><a href="#" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="prestamos">Préstamos</a></li>
@@ -95,7 +95,7 @@
                     <nav>
                         <ul class="space-y-2">
                             <li>
-                                <a href="#" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition" data-page="inicio">
+                                <a href="{{ route('home') }}" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition" data-page="inicio">
                                     <i class="fas fa-home mr-3"></i> Inicio
                                 </a>
                             </li>
