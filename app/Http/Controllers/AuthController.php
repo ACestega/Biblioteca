@@ -28,7 +28,7 @@ class AuthController extends Controller
             'password' => bcrypt($validatedData['password'])
         ]);
 
-        #Redirigir o iniciar sesión automaticamente
+        //Redirigir o iniciar sesión automaticamente
         auth()->login($user);
         return redirect()->route('home');
     }

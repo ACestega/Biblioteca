@@ -76,56 +76,48 @@
                             </div>
                         </div>
                     </section>
-                    
-                    <!-- Tabla de préstamos recientes -->
-                    <section class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-xl font-bold text-gray-800">Préstamos Recientes</h3>
-                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver todos</button>
+
+                    @foreach($libros as $libro)
+
+                   <section class="bg-white rounded-lg shadow p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Lista de Libros</h3>
+                        
+                        <div class="flex items-center gap-4">
+                            <a href="{{ route('libros.create') }}" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                                Nuevo Libro
+                            </a>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver todos</button>
                         </div>
+                    </div>
+                    </section>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <th class="py-3 px-4 font-semibold text-gray-700">Usuario</th>
-                                        <th class="py-3 px-4 font-semibold text-gray-700">Libro</th>
-                                        <th class="py-3 px-4 font-semibold text-gray-700">Fecha Préstamo</th>
-                                        <th class="py-3 px-4 font-semibold text-gray-700">Fecha Devolución</th>
-                                        <th class="py-3 px-4 font-semibold text-gray-700">Estado</th>
+                                        <th class="py-3 px-4 font-semibold text-gray-700">Titulo</th>
+                                        <th class="py-3 px-4 font-semibold text-gray-700">ISBN</th>
+                                        <th class="py-3 px-4 font-semibold text-gray-700">Autor</th>
+                                        <th class="py-3 px-4 font-semibold text-gray-700">editorial</th>
+                                        <th class="py-3 px-4 font-semibold text-gray-700">Categoría</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-t hover:bg-gray-50">
-                                        <td class="py-3 px-4">María González</td>
-                                        <td class="py-3 px-4">Cien años de soledad</td>
-                                        <td class="py-3 px-4">15/03/2023</td>
-                                        <td class="py-3 px-4">29/03/2023</td>
-                                        <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Activo</span></td>
-                                    </tr>
-                                    <tr class="border-t hover:bg-gray-50">
-                                        <td class="py-3 px-4">Carlos Rodríguez</td>
-                                        <td class="py-3 px-4">El principito</td>
-                                        <td class="py-3 px-4">10/03/2023</td>
-                                        <td class="py-3 px-4">24/03/2023</td>
-                                        <td class="py-3 px-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-medium">Vencido</span></td>
-                                    </tr>
-                                    <tr class="border-t hover:bg-gray-50">
-                                        <td class="py-3 px-4">Ana Martínez</td>
-                                        <td class="py-3 px-4">1984</td>
-                                        <td class="py-3 px-4">18/03/2023</td>
-                                        <td class="py-3 px-4">01/04/2023</td>
-                                        <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Activo</span></td>
-                                    </tr>
-                                    <tr class="border-t hover:bg-gray-50">
-                                        <td class="py-3 px-4">Pedro Sánchez</td>
-                                        <td class="py-3 px-4">Don Quijote de la Mancha</td>
-                                        <td class="py-3 px-4">05/03/2023</td>
-                                        <td class="py-3 px-4">19/03/2023</td>
-                                        <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Devuelto</span></td>
+                                        <td class="py-3 px-4">{{ $libro->nombre }}</td>
+                                        <td class="py-3 px-4">{{ $libro->isbn }}</td>
+                                        <td class="py-3 px-4">{{ $libro->autor }}</td>
+                                        <td class="py-3 px-4">{{ $libro->editorial }}</td>
+                                        <td class="py-3 px-4">{{ $libro->categoria->nombre }}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        @endforeach
                     </section>
                 </div>
             </main>
