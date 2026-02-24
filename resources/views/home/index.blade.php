@@ -112,18 +112,28 @@
                                         <td class="py-3 px-4">{{ $libro->isbn }}</td>
                                         <td class="py-3 px-4">{{ $libro->autor }}</td>
                                         <td class="py-3 px-4">{{ $libro->editorial }}</td>
-                                        <td class="py-3 px-4">{{ $libro->categoria->nombre }}¡</td>
+                                        <td class="py-3 px-4">{{ $libro->categoria->nombre }}</td>
                                         <td class="py-3 px-4">
                                             <a href="{{ route('libros.edit', $libro->id) }}" class="text-green-600 hover:text-green-800 font-medium text-sm">Editar</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button href="{{ route('libros.destroy', $libro->id) }}" type="submit" class="text-red-600 hover:text-red-800 font-medium text-sm">Eliminar</button>
+                                            <form action="{{ route('libros.destroy', $libro->id) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-600 hover:text-red-800 font-medium text-sm">Eliminar</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
+
+                        <!-- Paginación -->
+                        <div class="mt-4">
+                            {{ $libros->links() }} <!-- Enlace de paginación -->
+                        </div>                      
+
                     </section>
                 </div>
             </main>

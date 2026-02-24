@@ -36,7 +36,10 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </table> 
+            <div class="mt-4">
+            {{ $categorias->links() }}
+        </div>
         </div>
     </div>
 @endsection
