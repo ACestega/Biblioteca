@@ -77,8 +77,6 @@
                         </div>
                     </section>
 
-                    @foreach($libros as $libro)
-
                    <section class="bg-white rounded-lg shadow p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-bold text-gray-800">Lista de Libros</h3>
@@ -104,20 +102,28 @@
                                         <th class="py-3 px-4 font-semibold text-gray-700">Autor</th>
                                         <th class="py-3 px-4 font-semibold text-gray-700">editorial</th>
                                         <th class="py-3 px-4 font-semibold text-gray-700">Categoría</th>
+                                        <th class="py-3 px-4 font-semibold text-gray-700">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($libros as $libro)
                                     <tr class="border-t hover:bg-gray-50">
                                         <td class="py-3 px-4">{{ $libro->nombre }}</td>
                                         <td class="py-3 px-4">{{ $libro->isbn }}</td>
                                         <td class="py-3 px-4">{{ $libro->autor }}</td>
                                         <td class="py-3 px-4">{{ $libro->editorial }}</td>
-                                        <td class="py-3 px-4">{{ $libro->categoria->nombre }}</td>
+                                        <td class="py-3 px-4">{{ $libro->categoria->nombre }}¡</td>
+                                        <td class="py-3 px-4">
+                                            <a href="{{ route('libros.edit', $libro->id) }}" class="text-green-600 hover:text-green-800 font-medium text-sm">Editar</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button href="{{ route('libros.destroy', $libro->id) }}" type="submit" class="text-red-600 hover:text-red-800 font-medium text-sm">Eliminar</button>
+                                        </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        @endforeach
                     </section>
                 </div>
             </main>
