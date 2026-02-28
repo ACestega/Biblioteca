@@ -76,7 +76,8 @@
                             </div>
                         </div>
                     </section>
-
+                    
+                    <!-- Tabla de libros -->    
                    <section class="bg-white rounded-lg shadow p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-bold text-gray-800">Lista de Libros</h3>

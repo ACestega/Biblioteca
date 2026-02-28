@@ -25,7 +25,9 @@ class AuthController extends Controller
         $user = \App\Models\User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password'])
+            'password' => bcrypt($validatedData['password']),
+            'user_name' => $validatedData['email'],
+            'user_type' => 'user',
         ]);
 
         //Redirigir o iniciar sesión automaticamente
