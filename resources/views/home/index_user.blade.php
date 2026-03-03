@@ -1,8 +1,6 @@
-@extend ('layouts.user')
+@extends('layout.user')
 
-@section ('content')
-    <div class="container">
-        <h1>Welcome, {{ $user->name }}!</h1>
-        <p>This is your dashboard. Here you can manage your account and view your activities.</p>
-    </div>
+@section('content')
+<h1>Bienvenido {{ auth()->user()->name }}</h1>
+
 @endsection
