@@ -22,7 +22,7 @@
         }
         
         .active-menu {
-            background-color: #3b8ff6;
+            background-color: #032a5b;
             color: white;
         }
         
