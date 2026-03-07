@@ -40,7 +40,7 @@
                 <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded">Guardar </button>
 
                 <div class="flex items-center justify-between">
-                <button ty{{ route('categorias.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold px-4 py-2 rounded">Cancelar</a>
+                <a href="{{ route('usuarios.index') }}" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Cancelar</a>
             </div>
             </form>
         </div>
