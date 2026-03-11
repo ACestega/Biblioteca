@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Biblioteca - Sistema de Gestión</title>
+    <title>User Biblioteca - Sistema de Gestión</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,7 +53,7 @@
                     </button>
                     <div class="flex items-center space-x-2">
                         <i class="fas fa-book text-2xl"></i>
-                        <h1 class="text-xl font-bold">Admin Biblioteca</h1>
+                        <h1 class="text-xl font-bold">User Biblioteca</h1>
                     </div>
                 </div>
                 
@@ -67,7 +67,7 @@
                 
                 <!-- Perfil de usuario -->
                 <div class="flex items-center space-x-3">
-                    <span class="hidden sm:inline text-sm">Administrador</span>
+                    <span class="hidden sm:inline text-sm">Usuario</span>
                     <div class="w-8 h-8 bg-blue-800 rounded-full flex items-center justify-center">
                         <i class="fas fa-user"></i>
                     </div>

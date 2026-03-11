@@ -63,7 +63,7 @@
                         <li><a href="{{ route('home') }}" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="inicio">Inicio</a></li>
                         <li><a href="{{ route('usuarios.index') }}" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="usuarios">Usuarios</a></li>
                         <li><a href="#" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="libros">Libros</a></li>
-                        <li><a href="#" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="prestamos">Préstamos</a></li>
+                        <li><a href="{{ route('prestamos.index') }}" class="nav-link hover:bg-blue-700 px-3 py-2 rounded transition" data-page="prestamos">Préstamos</a></li>
                         <li><a href="{{ route('logout') }}" class="nav-link hover:bg-red-500 px-3 py-2 rounded transition" data-page="salir">Salir</a></li>
                     </ul>
                 </nav>
@@ -110,7 +110,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition" data-page="prestamos">
+                                <a href="{{ route('prestamos.index') }}" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition" data-page="prestamos">
                                     <i class="fas fa-exchange-alt mr-3"></i> Préstamos
                                 </a>
                             </li>
