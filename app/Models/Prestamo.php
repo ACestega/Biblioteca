@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Libro;
-use App\Models\Usuario;
+use App\Models\User;
 
 class Prestamo extends Model
 {
@@ -17,6 +17,6 @@ class Prestamo extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'usuario_id');
+        return $this->belongsTo(User::class, 'usuario_id');
     }
 }

@@ -51,11 +51,10 @@ Route::middleware(['auth', 'user_type:admin'])->group(function () {
     Route::delete('/usuarios/{id}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
 
     Route::get('/prestamos', [PrestamosController::class, 'index'])->name('prestamos.index');
-
+    Route::get('/prestamos/create', [PrestamosController::class, 'create'])->name('prestamos.create');
+    Route::post('/prestamos/buscar_usuario', [PrestamosController::class, 'buscar_usuario'])->name('prestamos.buscar_usuario');
 });
 
 Route::middleware(['auth', 'user_type:user'])->group(function () {
-    // Rutas para usuarios regulares
-    // Route::get('/libros', [LibrosController::class, 'index'])->name('libros.index');
-    // Route::get('/prestamos', [LibrosController::class, 'prestamos'])->name('prestamos.index');
+    
 });
