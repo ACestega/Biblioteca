@@ -105,7 +105,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition" data-page="libros">
+                                <a href="{{ route('libros.create') }}" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition" data-page="libros">
                                     <i class="fas fa-book mr-3"></i> Libros
                                 </a>
                             </li>
