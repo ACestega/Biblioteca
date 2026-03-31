@@ -15,65 +15,65 @@
                         <div class="bg-white p-6 rounded-lg shadow">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-gray-500 text-sm">Libros totales</p>
-                                    <p class="text-2xl font-bold">2,548</p>
+                                    <p class="text-gray-500 text-sm">Total de Libros</p>
+                                    <p class="text-2xl font-bold">{{ $total_libros }}</p>
                                 </div>
                                 <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                                     <i class="fas fa-book text-blue-600 text-xl"></i>
                                 </div>
                             </div>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <span class="text-green-600 text-sm font-medium"><i class="fas fa-arrow-up mr-1"></i> 5.2%</span>
                                 <span class="text-gray-500 text-sm ml-2">este mes</span>
-                            </div>
+                            </div> -->
                         </div>
                         
                         <div class="bg-white p-6 rounded-lg shadow">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-gray-500 text-sm">Préstamos activos</p>
-                                    <p class="text-2xl font-bold">187</p>
+                                    <p class="text-2xl font-bold">{{ $libros_prestados }}</p>
                                 </div>
                                 <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                                     <i class="fas fa-exchange-alt text-green-600 text-xl"></i>
                                 </div>
                             </div>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <span class="text-red-600 text-sm font-medium"><i class="fas fa-arrow-down mr-1"></i> 2.3%</span>
                                 <span class="text-gray-500 text-sm ml-2">este mes</span>
-                            </div>
+                            </div> -->
                         </div>
                         
                         <div class="bg-white p-6 rounded-lg shadow">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-gray-500 text-sm">Usuarios registrados</p>
-                                    <p class="text-2xl font-bold">523</p>
+                                    <p class="text-gray-500 text-sm">Usuarios Activos</p>
+                                    <p class="text-2xl font-bold">{{ $total_usuarios }}</p>
                                 </div>
                                 <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                                     <i class="fas fa-users text-purple-600 text-xl"></i>
                                 </div>
                             </div>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <span class="text-green-600 text-sm font-medium"><i class="fas fa-arrow-up mr-1"></i> 8.7%</span>
                                 <span class="text-gray-500 text-sm ml-2">este mes</span>
-                            </div>
+                            </div> -->
                         </div>
                         
                         <div class="bg-white p-6 rounded-lg shadow">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-gray-500 text-sm">Libros vencidos</p>
-                                    <p class="text-2xl font-bold">14</p>
+                                    <p class="text-gray-500 text-sm">Devoluciones Pendientes</p>
+                                    <p class="text-2xl font-bold">{{ $devoluciones_pendientes }}</p>
                                 </div>
                                 <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                                     <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
                                 </div>
                             </div>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <span class="text-green-600 text-sm font-medium"><i class="fas fa-arrow-down mr-1"></i> 12.5%</span>
                                 <span class="text-gray-500 text-sm ml-2">este mes</span>
-                            </div>
+                            </div> -->
                         </div>
                     </section>
                     
