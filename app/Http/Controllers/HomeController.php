@@ -14,8 +14,8 @@ class HomeController extends Controller
          $user = auth()->user(); // Obtener el usuario autenticado
 
         if($user->user_type === 'admin') {
-             $libros = Libro::paginate(2); // Obtener todos los libros de la base de datos con paginación
-             $total_libros = Libro::count(); // Obtener el total de libros
+             $libros = Libro::with('categoria')->paginate(3); // Obtener todos los libros de la base de datos con paginación
+             $total_libros = $libros->total();// Obtener el total de libros
              $libros_prestados = Libro::where('estatus', 1)->count(); // Obtener el total de libros prestados
              $total_usuarios = User::count(); // Obtener el total de usuarios
              $devoluciones_pendientes = Prestamo::where('estado', 'Pendiente')->count(); // Obtener el total de devoluciones pendientes
