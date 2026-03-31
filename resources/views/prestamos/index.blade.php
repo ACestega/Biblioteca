@@ -45,11 +45,6 @@
                                     @if($prestamo->estado == 'Pendiente')
                                     <a href="{{ route('prestamos.entregar', $prestamo->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded mr-2">Entregar</a>
                                     @endif
-                                    <!-- <form action="#" method="POST" class="inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 py-2 rounded">Eliminar</button>
-                                    </form> -->
                                 </td>
                             </tr>
                         @endforeach
