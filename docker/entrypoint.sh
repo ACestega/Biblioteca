@@ -1,22 +1,29 @@
-
 #!/bin/bash
 
-# Iniciar PHP-FPM en background
-php-fpm &
+echo "Iniciando aplicación..."
 
-#Esperar un poco
-sleep 3
+# Permisos (MUY IMPORTANTE)
+chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-#Generar key si no existe
-#php artisan key:generate --force
+# Limpiar caches viejos
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
 
-# Migraciones (opcional)
+# Generar key si no existe (opcional pero seguro)
+php artisan key:generate --force
+
+# Ejecutar migraciones
 php artisan migrate --force
 
-# Cachear config
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+# NO cachear config en Render al inicio (puede romper .env)
+# php artisan config:cache
 
-# Iniciar nginx
+# Iniciar PHP-FPM en segundo plano
+php-fpm &
+
+# Esperar un poco
+sleep 3
+
+# Iniciar nginx en foreground
 nginx -g "daemon off;"
