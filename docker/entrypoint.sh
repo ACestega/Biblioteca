@@ -2,28 +2,21 @@
 
 echo "Iniciando aplicación..."
 
-# Permisos (MUY IMPORTANTE)
+# Permisos
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Limpiar caches viejos
+# Limpiar config (IMPORTANTE)
 php artisan config:clear
 php artisan cache:clear
 php artisan view:clear
 
-# Generar key si no existe (opcional pero seguro)
-php artisan key:generate --force
-
-# Ejecutar migraciones
+# Migraciones
 php artisan migrate --force
 
-# NO cachear config en Render al inicio (puede romper .env)
-# php artisan config:cache
-
-# Iniciar PHP-FPM en segundo plano
+# Iniciar PHP-FPM
 php-fpm &
 
-# Esperar un poco
 sleep 3
 
-# Iniciar nginx en foreground
+# Iniciar nginx
 nginx -g "daemon off;"
