@@ -78,4 +78,45 @@ class UsuariosController extends Controller
     
         return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente.');
     }
+
+    public function profile()
+    {
+        $usuario = User::findOrFail(auth()->user()->id);
+        return view('usuarios.profile', compact('usuario'));
+    }
+
+    public function update_profile(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+    
+        $usuario = User::findOrFail(auth()->user()->id);
+        $usuario->name = $request->nombre;
+        $usuario->save();
+    
+        return redirect()->route('usuarios.profile')->with('success', 'Perfil actualizado exitosamente.');
+    }
+
+    public function update_password(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|min:8|confirmed',
+            'new_password_confirmation' => 'required|string|min:8',
+        ]);
+    
+        $usuario = User::findOrFail(auth()->user()->id);
+    
+        if (!password_verify($request->current_password, $usuario->password)) {
+            return redirect()->route('usuarios.profile')->withErrors(['current_password' => 'La contraseña actual es incorrecta.']);
+        }
+    
+        $usuario->password = bcrypt($request->new_password);
+        $usuario->save();
+    
+        return redirect()->route('usuarios.profile')->with('success', 'Contraseña actualizada exitosamente.');
+    }
+
+
 }

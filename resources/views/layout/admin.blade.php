@@ -69,8 +69,9 @@
                 </nav>
                 
                 <!-- Perfil de usuario -->
-                <div class="flex items-center space-x-3">
-                    <span class="hidden sm:inline text-sm">Administrador</span>
+                <div class="flex items-center space-x-2">
+                    <a href="{{ route('usuarios.profile') }}" class="sidebar-link block px-4 py-3 rounded hover:bg-gray-700 transition mr-3" >{{ Auth::user()->name }}</a>
+                    <p class="text-xs text-gray-400">{{ Auth::user()->email }}</p>
                     <div class="w-8 h-8 bg-blue-800 rounded-full flex items-center justify-center">
                         <i class="fas fa-user"></i>
                     </div>
