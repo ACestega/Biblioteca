@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Libro;
+use App\Http\Resources\LibroResource;
 
 class ApiController extends Controller
 {
@@ -31,4 +33,15 @@ class ApiController extends Controller
         $request->user()->currentAccessToken()->delete();
         return ['data' => 'Sesión cerrada'];
     }
+
+    public function libros_disponibles()
+    {
+        $libros = Libro::where('estatus',0)->orderBy('id','asc')->get();
+
+        $libros_resource = LibroResource::collection($libros);
+        
+        return $libros_resource;
+    }
+
+
 }
