@@ -89,14 +89,14 @@ class PrestamosController extends Controller
         \DB::beginTransaction();
 
         try {
-        $prestamo = Prestamo::findOrFail($id);
-        $prestamo->estado = 'Entregado';
-        $prestamo->fecha_entrega = now();
-        $prestamo->save();
+            $prestamo = Prestamo::findOrFail($id);
+            $prestamo->estado = 'Entregado';
+            $prestamo->fecha_entrega = now();
+            $prestamo->save();
 
-        $libro = Libro::findOrFail($prestamo->libro_id);
-        $libro->estatus = 0;
-        $libro->save();
+            $libro = Libro::findOrFail($prestamo->libro_id);
+            $libro->estatus = 0;
+            $libro->save();
 
         \DB::commit();
         } catch (\Exception $e) {

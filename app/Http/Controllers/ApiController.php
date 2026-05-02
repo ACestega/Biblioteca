@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Libro;
+use App\Models\Prestamo;
 use App\Http\Resources\LibroResource;
 
 class ApiController extends Controller
@@ -43,5 +44,33 @@ class ApiController extends Controller
         return $libros_resource;
     }
 
+    public function entregar_libro(Request $request)
+    {
+      
+    $request->validate([
+        'prestamo_id' => 'required|exists:prestamos,id',
+    ]);
+
+    $id = $request->input('prestamo_id');
+
+    \DB::beginTransaction();
+        try {
+            $prestamo = Prestamo::findOrFail($id);
+            $prestamo->estado = 'Entregado';
+            $prestamo->fecha_entrega = now();
+            $prestamo->save();
+
+            $libro = Libro::findOrFail($prestamo->libro_id);
+            $libro->estatus = 0;
+            $libro->save();
+
+        \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            return ['error' => 'Error al crear el prestamo: '];
+        }
+
+        return ['data' => 'Libro entregado exitosamente'];  
+    }
 
 }
