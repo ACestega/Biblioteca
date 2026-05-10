@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\UsuarioRegistrado;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -31,6 +33,10 @@ class AuthController extends Controller
 
         //Redirigir o iniciar sesión automaticamente
         auth()->login($user);
+        
+        //Enviar correo de bienvenida
+        Mail::to($user->email)->send(new UsuarioRegistrado($user));
+
         return redirect()->route('home');
     }
 
